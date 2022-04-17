@@ -21,3 +21,21 @@ fun(a, [], map)
 # ['b', 'c', 'a']
 # ['c', 'a', 'b']
 # ['c', 'b', 'a']
+
+
+# Second approach without extra space of map. Using swap method
+
+def fun(idx, arr):
+    if idx == len(arr):
+        print(arr)
+        return
+    for i in range(idx,len(arr)):
+        arr[i], arr[idx] = arr[idx], arr[i]
+        fun(idx+1, arr)
+        arr[i], arr[idx] = arr[idx], arr[i]
+
+a = ['a','b','c']
+# map =[ False for i in range(len(a))]
+fun(0, a)
+
+
