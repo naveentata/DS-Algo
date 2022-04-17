@@ -31,3 +31,26 @@ fun(0, [],14, a, len(a))
 # [2, 4, 4, 4]
 # [2, 6, 6]
 # [4, 4, 6]
+
+
+# Second approch
+# Just a modification of previous prob "print_all_subseq_sum_is_k.py"
+print("Print all subsequences whoes sum is k. Digit can be used any number of times")
+def fun(idx, sumi, temp_arr,  k, arr, n):
+    if idx == n:
+        if sumi == k:
+            print(temp_arr)
+        return
+    # Take idx only if arr[idx] is less than or equal to the resultant target ie (k - sumi)
+    if arr[idx] <= k - sumi:
+        temp_arr.append(arr[idx])
+        sumi+=arr[idx]
+        fun(idx, sumi, temp_arr, k, arr, n)
+        # Not take idx
+        temp_arr.pop()
+        sumi-=arr[idx]
+    fun(idx+1, sumi, temp_arr, k, arr, n)
+
+a = [3, 2, 4, 6]
+
+fun(0, 0, [], 14, a, len(a))
