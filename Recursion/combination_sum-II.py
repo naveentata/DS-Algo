@@ -13,7 +13,7 @@ def fun(idx, temp_arr,  k, arr):
         
         temp_arr.append(arr[i])
         fun(i+1, temp_arr, k-arr[i], arr)
-        temp_arr.remove(temp_arr[len(temp_arr) - 1])
+        temp_arr.pop()
 
 a = [10,1,2,7,6,1,5]
 a.sort(reverse=False)
